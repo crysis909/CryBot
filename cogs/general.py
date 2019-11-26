@@ -14,7 +14,7 @@ class General(Cog):
         super().__init__(bot)
         
     @commands.command(name="coin", help="Flips a coin x times")
-    async def coin(self, ctx, times:int=1):
+    async def coin(self, ctx, times : int = 1):
         max_flips = 10
         if times > max_flips:
             await self, ctx.send("Too many flips. MAX: " + str(max_flips))
@@ -27,14 +27,14 @@ class General(Cog):
             await self, ctx.send(str(count) + ": " + choice)
 
     @commands.command(name="random", help="Random number between start and end")
-    async def random_(self, ctx, start:int, end:int):
+    async def random_(self, ctx, start : int, end : int):
         if end < start:
             start,end = await swap(start,end)
             
         await self, ctx.send(random.randint(start, end))
 
     @commands.command(name="choose", help="Choose between mulitple options")
-    async def choose(self, ctx, *choices):
+    async def choose(self, ctx, *choices : str):
         if len(choices) < 2:
             await self, ctx.send("Not enough options available")
         else:
@@ -46,7 +46,7 @@ class General(Cog):
         pass
 
     @commands.command(name="quote", help="Sends a random quote of a specificite group")
-    async def quote(self, ctx, group):
+    async def quote(self, ctx, group : str):
         quotes = {
             "darksouls" : [
                 "Git gud ~OnlyAfro",

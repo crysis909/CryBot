@@ -11,7 +11,7 @@ class Games(Cog):
         super().__init__(bot)
 
     @commands.command(name="guess", help="Guess the right number between start and end")
-    async def guess(self, ctx, guess:int, start:int=1, end:int=10):
+    async def guess(self, ctx, guess : int, start : int = 1, end : int = 10):
         if end < start:
             await swap(start,end)
 
